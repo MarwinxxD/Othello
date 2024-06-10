@@ -1,16 +1,13 @@
-import java.awt.*;
+package game;
 
 public class Disc {
-    //Image color;
     String color;
     int posX;
     int posY;
 
-    public Disc(String _color, int _posX, int _posY) {
+    public Disc(String _color) {
         try{
             setColor(_color);
-            setPosX(_posX);
-            setPosY(_posY);
         } catch (Exception e){
             e.printStackTrace();
         }
