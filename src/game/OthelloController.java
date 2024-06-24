@@ -23,11 +23,12 @@ public class OthelloController implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (model.getCurrPlayer().equals(model.getPlayerOne())) {
-            gui.getFields(x, y).setIcon(BLACK);
+            gui.setIconBlack(x, y);
         } else {
-            gui.getFields(x, y).setIcon(WHITE);
+            gui.setIconWhite(x, y);
         }
         model.changeGamestate();
+        gui.legalMoveHighlight();
     }
 
     @Override
