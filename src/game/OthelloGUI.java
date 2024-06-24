@@ -16,7 +16,7 @@ public class OthelloGUI extends JFrame {
     private final JLabel[][] fields = new JLabel[SIZE_OF_ONE_SIDE][SIZE_OF_ONE_SIDE];
 
     private final JLabel p1 = new JLabel("remaining discs Player 1: " + model.getPlayerOne().getDiscs().size());
-    private final JLabel p2 = new JLabel("remaining discs Player 2: " + model.getPlayerOne().getDiscs().size());
+    private final JLabel p2 = new JLabel("remaining discs Player 2: " + model.getCurrPlayer().getDiscs().size());
 
 
     public OthelloGUI() {
@@ -55,10 +55,10 @@ public class OthelloGUI extends JFrame {
     public void legalMoveHighlight() {
         for (int i = 0; i < SIZE_OF_ONE_SIDE; i++) {
             for (int j = 0; j < SIZE_OF_ONE_SIDE; j++) {
-                if (model.getCurrPlayer().getColor().equalsIgnoreCase("white")) {
-                    checkNeighboursAndSetBorder(i, j, WHITE_DISC);
-                } else {
+                if (model.getCurrPlayer().equals(model.getPlayerOne())) {
                     checkNeighboursAndSetBorder(i, j, BLACK_DISC);
+                } else {
+                    checkNeighboursAndSetBorder(i, j, WHITE_DISC);
                 }
             }
         }
@@ -69,7 +69,7 @@ public class OthelloGUI extends JFrame {
             setBordersBlack();
             addDiscToPlayerAndModel(x, y);
 
-            if (model.getCurrPlayer().getColor().equalsIgnoreCase("white")) {
+            if (model.getCurrPlayer().equals(model.getPlayerOne())) {
                 fields[x][y].setIcon(WHITE_DISC);
             } else {
                 fields[x][y].setIcon(BLACK_DISC);
