@@ -21,19 +21,12 @@ public class Player {
     }
 
     public void placeDisc(Disc _disc) {
-        discs.remove(_disc);
+        discs.removeFirst();
         placedDiscs.add(_disc);
     }
 
     public String getColor() {
         return color;
-    }
-
-    public ImageIcon getImage() {
-        if (color == "black") {
-            return BLACK_DISC;
-        }
-        return WHITE_DISC;
     }
 
     public LinkedList<Disc> getDiscs() {

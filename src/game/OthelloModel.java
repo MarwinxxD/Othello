@@ -1,14 +1,14 @@
 package game;
 
+import java.util.ArrayList;
+
 public class OthelloModel {
     private static final int SIZE_OF_ONE_SIDE = 8;
-
-    Disc[] discs = new Disc[SIZE_OF_ONE_SIDE * SIZE_OF_ONE_SIDE];
 
     Player p1 = new Player("white");
     Player p2 = new Player("black");
 
-    boolean gamestate = false; //true = white, false = black
+    boolean gamestate = true; //true = white, false = black
 
     boolean gameEnd = false;
 
@@ -29,5 +29,13 @@ public class OthelloModel {
 
     public void changeGamestate() {
         gamestate = !gamestate;
+    }
+
+    public void endGame() {
+        gameEnd = true;
+    }
+
+    public String getGameState() {
+        return gamestate ? "white" : "black";
     }
 }

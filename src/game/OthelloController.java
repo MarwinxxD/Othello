@@ -5,9 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class OthelloController implements MouseListener {
-    private static final ImageIcon BLACK = new ImageIcon("src/Othello_black.png"); //credits RodneyShag
-    private static final ImageIcon WHITE = new ImageIcon("src/Othello_white.png"); //credits RodneyShag
-
     private final OthelloGUI gui;
     private final OthelloModel model;
     int x;
@@ -23,11 +20,18 @@ public class OthelloController implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (model.getCurrPlayer().equals(model.getPlayerOne())) {
-            gui.setIconBlack(x, y);
+            try {
+                gui.placeDisc(x, y);
+            } catch (IllegalAccessException ex) {
+                ex.printStackTrace();
+            }
         } else {
-            gui.setIconWhite(x, y);
+            try {
+                gui.placeDisc(x, y);
+            } catch (IllegalAccessException ex) {
+                ex.printStackTrace();
+            }
         }
-        model.changeGamestate();
         gui.legalMoveHighlight();
     }
 
